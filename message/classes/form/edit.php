@@ -14,9 +14,9 @@ class edit extends moodleform {
         $mform->setDefault('github_url', 'Please enter the Github url');        //Default value
         
 
-        $mform->addElement('text', 'id_', ' תעודת זהות'); // Add elements to your form
-        $mform->setType('id_', PARAM_NOTAGS);                   //Set type of element
-        $mform->setDefault('id_', 'הכנס ת.ז');        //Default value
+        // $mform->addElement('text', 'id_', ' תעודת זהות'); // Add elements to your form
+        // $mform->setType('id_', PARAM_NOTAGS);                   //Set type of element
+        // $mform->setDefault('id_', 'הכנס ת.ז');        //Default value
 
 
 
