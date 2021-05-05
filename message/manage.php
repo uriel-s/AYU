@@ -6,7 +6,7 @@ global $DB;
 
 $PAGE->set_url(new moodle_url('/local/message/manage.php'));
 $PAGE->set_context(\context_system::instance());
-$PAGE->set_title('Manage messages');
+$PAGE->set_title('uploud Badkan');
 
 $messages = $DB->get_records('local_message');
 
@@ -16,6 +16,7 @@ $templatecontext = (object)[
     'editurl' => new moodle_url('/local/message/edit.php'),
 ];
 echo $OUTPUT->render_from_template('local_message/manage', $templatecontext);
+
 echo $OUTPUT->footer();
 
  

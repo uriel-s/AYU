@@ -13,7 +13,7 @@ $mform = new edit();
 
 if ($mform->is_cancelled()) {
     // Go back to manage.php page
-    redirect($CFG->wwwroot . '/local/message/manage.php', 'העלאת הקישור לבדקן בוטלה');
+    redirect($CFG->wwwroot . '/local/message/manage.php', 'העלאת הקישור לבדקן בוטלה',$type = \core\output\notification::NOTIFY_WARNING);
 }
 
 else if ($fromform = $mform->get_data()) {
@@ -30,5 +30,6 @@ else if ($fromform = $mform->get_data()) {
 }
 
 echo $OUTPUT->header();
+echo'just e ';
 $mform->display();
 echo $OUTPUT->footer();
