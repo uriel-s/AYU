@@ -15,6 +15,9 @@ $templatecontext = (object)[
     'messages' => array_values($messages),
     'editurl' => new moodle_url('/local/message/edit.php'),
 ];
+
+echo'2121';
+
 echo $OUTPUT->render_from_template('local_message/manage', $templatecontext);
 
 echo $OUTPUT->footer();

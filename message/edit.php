@@ -20,18 +20,19 @@ else if ($fromform = $mform->get_data()) {
 
     // Insert the data into our database table.
     $recordtoinsert = new stdClass();
-    $recordtoinsert->github_url = $fromform->github_url;
-    $recordtoinsert->id_ = $USER->id;
-   // $recordtoinsert->id_ = $fromform->id_;
-   $recordtoinsert->name_ = $fromform->name_;
+    $recordtoinsert->git_url = $fromform->git_url;
+    $recordtoinsert->user_id= $USER->id;
+    $recordtoinsert->user_name = $fromform->user_name;
 
- //  $recordtoinsert->name_ = $fromform->name_;
 
     $DB->insert_record('local_message', $recordtoinsert);
     redirect($CFG->wwwroot . '/local/message/manage.php', 'send   :' . $fromform->github_url. '  to Badkan');
 
 }
 echo $OUTPUT->header();
-echo'just 1234e5 ';
+echo'233';
+echo $USER->username ;
+echo 'user name';
+
 $mform->display();
 echo $OUTPUT->footer();
