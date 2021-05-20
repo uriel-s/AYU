@@ -10,25 +10,52 @@ from selenium.webdriver.support import expected_conditions as EC
 import time
 from selenium.webdriver.remote.webdriver import WebDriver
 
-def  main(user_email ,user_password, user_link , badkan_link, course_name, assignment_name):
-    is_entered =  Login(user_email , user_password) 
-    
+# def  main(user_email ,user_password, user_link , badkan_link, course_name, assignment_name):
+#     is_entered =  Login(user_email , user_password) 
 
-def getHomePage():
+
+
+# register to new curse     
+def register_for_course(Course_name):
+    try:
+        driver.find_element_by_partial_link_text('Public').click()
+        print("public btn sucses")
+        driver.implicitly_wait(2)
+        btn = driver.find_element_by_xpath("//*[contains(text(), '"+Course_name +"')]").click()
+    except:
+        print("public btn failed")
+    
+    try:
+        btn = driver.find_element_by_xpath("//*[contains(text(), '"+Course_name +"')]").click()
+    except:
+        print("curse btn failed")       
+    try:
+        btn =  driver.find_element_by_xpath("//li[@class='active']/div/button").click()
+    except:
+        print("assigment btn failed") 
+    try:
+        btn =  driver.find_element_by_xpath("//button[@class='collapsible active' ]/../div/div/button"  ).click()
+    except:
+        print("register btn failed")     
+
+#Enter to a curse page that contain all his assignment or register to new curse if needed
+def getCursePage(Course_name):
     try:
         driver.find_element_by_partial_link_text('My Courses').click()
         print("login sucses")
     except:
         print("login failed")
     driver.implicitly_wait(10)
-    
+
     try:
-        btn = driver.find_element_by_xpath("//*[contains(text(), 'C++ 5780')]")
+        path = "//*[contains(text(), '"+Course_name +"')]"
+        btn = driver.find_element_by_xpath(path)
         driver.implicitly_wait(2)
         btn.click()
+        print("enter into curse page")
     except:
         print("course was not found")
-    # call to register to the curse function  !!!!
+        register_for_course(Course_name)
 
 
 # enter  to the assignment page
@@ -65,7 +92,7 @@ passw.send_keys("123456")
 btn = driver.find_element_by_id("btnLogin")
 btn.send_keys(Keys.RETURN)
 driver.implicitly_wait(10)
-getHomePage()
+getCursePage("מבוא לחישוב - Java")
 Locate_the_assignment_page()
 fill_assignment_page()
 #Enter to 'my curses' page and check if the user is registered for the course
