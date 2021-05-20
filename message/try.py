@@ -31,8 +31,8 @@ def getHomePage():
     # call to register to the curse function  !!!!
 
 
-
-def  Locate_the_assignment_page():    # enter  to the assignment page
+# enter  to the assignment page
+def  Locate_the_assignment_page():    
     try :
         btn = driver.find_element_by_xpath("//*[contains(text(), 'Physical Number - b')]")
         driver.implicitly_wait(2)
@@ -51,7 +51,8 @@ def  Locate_the_assignment_page():    # enter  to the assignment page
         print("error")
 
 
-
+def fill_assignment_page():
+    x=0
 
 PATH = "C:\Program Files (x86)\chromedriver.exe"
 driver = webdriver.Chrome(PATH)
@@ -66,7 +67,7 @@ btn.send_keys(Keys.RETURN)
 driver.implicitly_wait(10)
 getHomePage()
 Locate_the_assignment_page()
-
+fill_assignment_page()
 #Enter to 'my curses' page and check if the user is registered for the course
 
     
