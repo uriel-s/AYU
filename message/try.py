@@ -59,9 +59,10 @@ def getCursePage(Course_name):
 
 
 # enter  to the assignment page
-def  Locate_the_assignment_page():    
+def  Locate_the_assignment_page(assignment):    
     try :
-        btn = driver.find_element_by_xpath("//*[contains(text(), 'Physical Number - b')]")
+        path = "//*[contains(text(), '"+assignment+"')]"
+        btn = driver.find_element_by_xpath(path)
         driver.implicitly_wait(2)
         print("assigmnet  found")
         btn.click()
@@ -69,7 +70,6 @@ def  Locate_the_assignment_page():
         print("assigmnet was not  found")
     
     try :
-    
         driver.implicitly_wait(5)
         btn =  driver.find_element_by_xpath("//button[@class='collapsible active' ]/../div/div/button"  )
         driver.implicitly_wait(10)
@@ -81,20 +81,26 @@ def  Locate_the_assignment_page():
 def fill_assignment_page():
     x=0
 
+course = "OOP"
+assignment ="Ex0 Final test"
+userEmail = "maccavi2@gmail.com"
+password = "123456"
+gitHubUrl = ""
+
 PATH = "C:\Program Files (x86)\chromedriver.exe"
 driver = webdriver.Chrome(PATH)
 driver.get("http://104.248.40.179/")
 email = driver.find_element_by_name('email')
 passw = driver.find_element_by_name('password')
 driver.current_url
-email.send_keys("maccavi2@gmail.com")
-passw.send_keys("123456")
+email.send_keys(userEmail)
+passw.send_keys(password)
 btn = driver.find_element_by_id("btnLogin")
 btn.send_keys(Keys.RETURN)
 driver.implicitly_wait(10)
-getCursePage("מבוא לחישוב - Java")
-Locate_the_assignment_page()
-fill_assignment_page()
+getCursePage(course)
+Locate_the_assignment_page(assignment)
+fill_assignment_page(gitHubUrl)
 #Enter to 'my curses' page and check if the user is registered for the course
 
     
