@@ -16,7 +16,7 @@ $templatecontext = (object)[
     'editurl' => new moodle_url('/local/message/edit.php'),
 ];
 
-echo'333';
+echo'555';
 
 echo $OUTPUT->render_from_template('local_message/manage', $templatecontext);
 

@@ -114,33 +114,31 @@ def  Locate_the_assignment_page(assignment):
         print("error")
 
 
+def fill_assignment_page():
+    x=0
+
+course = "C++ 5780"
+assignment ="Solver - A"
+userEmail = "maccavi2@gmail.com"
+password = "123456"
+gitHubUrl = "https://github.com/uriel-s/War_game.git"
+IDs={"312251846"}
+
+PATH = "C:\Program Files (x86)\chromedriver.exe"
+driver = webdriver.Chrome(PATH)
+driver.get("http://104.248.40.179/")
+email = driver.find_element_by_name('email')
+passw = driver.find_element_by_name('password')
+driver.current_url
+email.send_keys(userEmail)
+passw.send_keys(password)
+btn = driver.find_element_by_id("btnLogin")
+btn.send_keys(Keys.RETURN)
+driver.implicitly_wait(10)
+getCursePage(course)
+Locate_the_assignment_page(assignment)
+result =  Assign_my_code (gitHubUrl,IDs)
+print("ok ok ok")#Enter to 'my curses' page and check if the user is registered for the course
+
   
-def main():
 
-    course = "C++ 5780"
-    assignment ="Solver - A"
-    userEmail = "maccavi2@gmail.com"
-    password = "123456"
-    gitHubUrl = "https://github.com/uriel-s/War_game.git"
-    IDs={"312251846"}
-
-    PATH = "C:\Program Files (x86)\chromedriver.exe"
-    driver = webdriver.Chrome(PATH)
-    driver.get("http://104.248.40.179/")
-    email = driver.find_element_by_name('email')
-    passw = driver.find_element_by_name('password')
-    driver.current_url
-    email.send_keys(userEmail)
-    passw.send_keys(password)
-    btn = driver.find_element_by_id("btnLogin")
-    btn.send_keys(Keys.RETURN)
-    driver.implicitly_wait(10)
-    getCursePage(course)
-    Locate_the_assignment_page(assignment)
-    result =  Assign_my_code (gitHubUrl,IDs)
-    print("ok ok ok")#Enter to 'my curses' page and check if the user is registered for the course
-    return "ok"
-  
-
-if __name__ == "__main__":
-    main()

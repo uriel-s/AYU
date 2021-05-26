@@ -37,14 +37,14 @@ else if ($fromform = $mform->get_data()) {
     $recordtoinsert->user_email = $fromform->user_email;
     $recordtoinsert->assignment = $assignment;
     $recordtoinsert->course_name = $course_name;
-    $DB->insert_record('submission_data', $recordtoinsert);
+    $DB->insert_record('local_message', $recordtoinsert);
 
     // Insert the  user  ans  submission data into our database table.
-    $recordtoinsert2 = new stdClass();
-    $recordtoinsert2->feedback = $python_result;
-    $recordtoinsert2->user_id= $USER->id;
+    //$recordtoinsert2 = new stdClass();
+    //$recordtoinsert2->feedback = $python_result;
+    //$recordtoinsert2->user_id= $USER->id;
     //$recordtoinsert2->grade = grade;  //~~need to comlete~~
-    $DB->insert_record('badkan_feedback', $recordtoinsert2);
+    //$DB->insert_record('badkan_feedback', $recordtoinsert2);
     
     //    // Go back to manage.php page 
     redirect($CFG->wwwroot . '/local/message/manage.php', 'send   :' . $fromform->github_url. '  to Badkan');
@@ -52,7 +52,7 @@ else if ($fromform = $mform->get_data()) {
    
 }
 echo $OUTPUT->header();
-echo'20 10 00 ';
+echo'555 ';
 echo 'u(:';
 
 $mform->display();
