@@ -25,7 +25,7 @@ else if ($fromform = $mform->get_data()) {
 
      //use python file  to submit
      $python_data = array($course_name , $assignment , $fromform->user_emai , $fromform->user_password , $fromform->git_url ,  $USER->id );
-     $python_path = 'python  /local/brow.py';
+     $python_path = 'python  /local/submit.py';
      $python_result;
      exec( $python_path.$python_data,$ $python_result);
 
